@@ -45,7 +45,7 @@ namespace EXIF_Plotter
             return retVal;
         }
 
-        static void Main(string[] args)
+        static void Main()
         {
             List<string> errors = new List<string>();
             var files = Directory.GetFiles(@"pics\");
@@ -82,6 +82,14 @@ namespace EXIF_Plotter
                         uri += coord.Key + "/";
                     }
                 }
+
+                Console.WriteLine("\n\n---------=============== Picture Coordinates ===============---------\n");
+                foreach (KeyValuePair<string, string> coord in coordsList)
+                {
+                    Console.WriteLine($"{coord.Value}: {coord.Key}");
+                }
+
+                Console.WriteLine("\n\n");
 
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
                 { UseShellExecute = true, FileName = uri });
