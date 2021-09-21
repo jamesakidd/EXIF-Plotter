@@ -95,8 +95,11 @@ namespace EXIF_Plotter
                 { UseShellExecute = true, FileName = uri });
             }
 
-            if (!errors.Any()) return;
-            errors.ForEach(Console.WriteLine);
+            if (errors.Any())
+            {
+                errors.ForEach(Console.WriteLine);
+            }
+
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
         }
